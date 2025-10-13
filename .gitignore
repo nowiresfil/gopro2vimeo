@@ -1,6 +1,6 @@
 # Project related ignores
 *.vscode
-./mediamtx/config/*.yml
+mediamtx/config/*.yml
 
 # ---> Python
 # Byte-compiled / optimized / DLL files
