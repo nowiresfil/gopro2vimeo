@@ -4,6 +4,13 @@ Use this code to make a RaspberryPi into a realtime transcoder to allow sending 
 
 The tested configuration is Gopro (wifi) starlink_mini--(ethernet)--Rpi5 >> Vimeo, although other combinations should be possible
 
+# Tech
+  The RPi sets up a local RTMP server on port 1935 with a publishing point ``` /live/1 ```
+
+  Once a valid stream is detected, RPi sends the stream onto a preconfigured Vimeo live event using the SRT protocol
+
+  Script installs docker, sets up dependancies, sets up container config and a menu for adding/updating your vimeo ```streamid```
+
 # TL#DR
 Copy and paste the following command into your Rpi terminal and hit enter. 
 
@@ -22,9 +29,25 @@ curl fsSL https://github.com/nowiresfil/gopro2vimeo/blob/main/setup.sh | bash
 
   Why the Raspberry Pi hardware... Affordable, available, most widely known. Arguably the easiest for a beginner to get working... however, code will work with other hardware platforms
 
-# Tech
-  The RPi sets up a local RTMP server on port 1935 with a publishing point /live/1
 
-  Once a valid stream is detected, it sends the stream onto a preconfigured Vimeo live event using the SRT protocol
+# Step 1 - Requirements
 
-  Script installs docker, sets up mediamtx and dependancies, setting up container config and a menu for adding your vimeo streamid
+  Raspberrypi 5 - 4GB RAM (8GB, 16GB will work) https://core-electronics.com.au/raspberry-pi-5-model-b-4gb.html
+
+  microSD card - 32GB (64GB, 128GB, 256GB will work) https://core-electronics.com.au/32gb-microsd-card-with-noobs-for-all-raspberry-pi-boards.html
+
+  Heatsink Case for RPi5 https://core-electronics.com.au/aluminium-armour-heatsink-case-raspberry-pi-5.html
+
+  Diecast aluminium enclosure, to weatherproof the RPi and PSU https://www.jaycar.com.au/ip65-sealed-diecast-aluminium-boxes-flanged-171-w-x121-d-x55-h-mm/p/HB5041
+
+  Automotive USB-C power supply, capable of at least 3amps @ 5volts https://www.jaycar.com.au/usb-type-c-car-charger-5-4a-total-output/p/MP3684
+
+  Ethernet cable for starlink mini https://campervanbuilders.com.au/products/starlink-gen3-cables
+
+  Automotive power supply for starlink mini https://campervanbuilders.com.au/products/starlink-easy-12-volt-mini-booster
+
+  
+
+  
+
+  
