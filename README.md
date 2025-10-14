@@ -58,7 +58,7 @@ curl fsSL https://github.com/nowiresfil/gopro2vimeo/blob/main/setup.sh | bash
   Automotive power supply for starlink mini 
   https://campervanbuilders.com.au/products/starlink-easy-12-volt-mini-booster
 
-  Vimeo Account - 'Advanced Plan' ($153mth or $1200pa)
+  Vimeo Account - 'Advanced Plan' ($168mth or $1200pa)
   https://vimeo.com/checkout/advanced/
 
   A mounting system for Starlink Mini to suit your vehicle
