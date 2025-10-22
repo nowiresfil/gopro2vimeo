@@ -15,7 +15,7 @@ Script installs docker, sets up dependancies, sets up container config and a men
 Copy and paste the following command into your Rpi terminal and hit enter.
 
 ```bash
-curl fsSL https://github.com/nowiresfil/gopro2vimeo/blob/main/setup.sh | bash
+curl fsSL https://raw.githubusercontent.com/nowiresfil/gopro2vimeo/refs/heads/main/setup.sh | bash
 ```
 
 # Why
