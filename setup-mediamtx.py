@@ -180,6 +180,8 @@ def set_paths(stream_id):
 
 
 if __name__ == '__main__':
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     while True:
         print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         print('~ nowiresfil/gopro2vimeo Setup ~')
@@ -192,34 +194,29 @@ if __name__ == '__main__':
         print('11. Docker Container Restart')
         print('c.  Clear Terminal')
         print('q.  Quit & Exit\n')
-        menu_choice = input('Option: ')
-        print()
 
-        if menu_choice == '1':
-            inital_setup()
-
-        elif menu_choice == '2':
-            print(json.dumps(get_paths(), indent=2))
-
-        elif menu_choice == '3':
-            stream_id = input('New Stream ID: ')
-            set_paths(stream_id=stream_id)
-
-        elif menu_choice == 'c':
-            os.system('cls' if os.name == 'nt' else 'clear')
-
-        elif menu_choice == '5':
-            print('Collecting all path names...')
-            get_path_list()
-
-        elif menu_choice == '10':
-            print(os.system('docker ps -a'))
-
-        elif menu_choice == '11':
-            print(os.system('docker compose down --remove-orphans && docker compose up -d'))
-
-        elif menu_choice == 'q':
-            break
-
-        else:
-            break
+        try:
+            menu_choice = input('Option: ')
+            if menu_choice == '1':
+                inital_setup()
+            elif menu_choice == '2':
+                print(json.dumps(get_paths(), indent=2))
+            elif menu_choice == '3':
+                stream_id = input('New Stream ID: ')
+                set_paths(stream_id=stream_id)
+            elif menu_choice == 'c':
+                os.system('cls' if os.name == 'nt' else 'clear')
+            elif menu_choice == '5':
+                print('Collecting all path names...')
+                get_path_list()
+            elif menu_choice == '10':
+                print(os.system('docker ps -a'))
+            elif menu_choice == '11':
+                print(os.system('docker compose down --remove-orphans && docker compose up -d'))
+            elif menu_choice == 'q':
+                break
+            else:
+                break
+        except EOFError as e:
+            print('Error:', e)
+            pass
