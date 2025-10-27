@@ -4,7 +4,5 @@ services:
     container_name: mediamtx
     restart: always
     network_mode: host
-    environment:
-      - STREAM_ID=${STREAM_ID}
     volumes:
       - ./config/mediamtx.yml:/mediamtx.yml
