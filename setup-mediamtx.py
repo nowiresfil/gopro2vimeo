@@ -192,8 +192,9 @@ if __name__ == '__main__':
         print('4. Current Settings')
         print('5. Update Stream ID')
         print('6. All Paths Lists')
-        print('7. Docker Container Status')
-        print('8. Docker Container Restart')
+        print('7. Mediamtx Container Status')
+        print('8. Mediamtx Container Restart')
+        print('9. Mediamtx Container Stop')
         print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         print('C. Clear Terminal')
         print('Q. Quit & Exit\n')
@@ -227,7 +228,10 @@ if __name__ == '__main__':
             print(os.system('docker ps -a'))
 
         elif menu_choice == '8':
-            print(os.system('docker compose down --remove-orphans && docker compose up -d'))
+            print(os.system('docker compose -f /home/pi/gopro2vimeo/mediamtx/docker-compose.yml down --remove-orphans && docker compose -f /home/pi/gopro2vimeo/mediamtx/docker-compose.yml up -d'))
+
+        elif menu_choice == '9':
+            os.system('docker compose -f /home/pi/gopro2vimeo/mediamtx/docker-compose.yml down --remove-orphans')
 
         elif menu_choice == 'q':
             break
