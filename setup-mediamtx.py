@@ -186,37 +186,50 @@ if __name__ == '__main__':
         print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         print('~ nowiresfil/gopro2vimeo Setup ~')
         print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-        print('1.  Initial setup')
-        print('2.  Current Settings')
-        print('3.  Update Stream ID')
-        print('5.  All Paths Lists')
-        print('10. Docker Container Status')
-        print('11. Docker Container Restart')
-        print('c.  Clear Terminal')
-        print('q.  Quit & Exit\n')
+        print('1. Initial setup')
+        print('2. Start Mediamtx')
+        print('3. Mediamtx Logs')
+        print('4. Current Settings')
+        print('5. Update Stream ID')
+        print('6. All Paths Lists')
+        print('7. Docker Container Status')
+        print('8. Docker Container Restart')
+        print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+        print('C. Clear Terminal')
+        print('Q. Quit & Exit\n')
 
-        try:
-            menu_choice = input('Option: ')
-            if menu_choice == '1':
-                inital_setup()
-            elif menu_choice == '2':
-                print(json.dumps(get_paths(), indent=2))
-            elif menu_choice == '3':
-                stream_id = input('New Stream ID: ')
-                set_paths(stream_id=stream_id)
-            elif menu_choice == 'c':
-                os.system('cls' if os.name == 'nt' else 'clear')
-            elif menu_choice == '5':
-                print('Collecting all path names...')
-                get_path_list()
-            elif menu_choice == '10':
-                print(os.system('docker ps -a'))
-            elif menu_choice == '11':
-                print(os.system('docker compose down --remove-orphans && docker compose up -d'))
-            elif menu_choice == 'q':
-                break
-            else:
-                break
-        except EOFError as e:
-            print('Error:', e)
-            pass
+        menu_choice = input('Option: ').lower()
+
+        if menu_choice == '1':
+            inital_setup()
+
+        elif menu_choice == '2':
+            os.system('docker compose -f /home/pi/gopro2vimeo/mediamtx/docker-compose.yml up -d')
+
+        elif menu_choice == '3':
+            os.system('docker logs -f mediamtx -n 100')
+
+        elif menu_choice == '4:
+            print(json.dumps(get_paths(), indent=2))
+
+        elif menu_choice == '5':
+            stream_id = input('New Stream ID: ')
+            set_paths(stream_id=stream_id)
+
+        elif menu_choice == 'c':
+            os.system('cls' if os.name == 'nt' else 'clear')
+
+        elif menu_choice == '6':
+            print('Collecting all path names...')
+            get_path_list()
+
+        elif menu_choice == '7':
+            print(os.system('docker ps -a'))
+
+        elif menu_choice == '8':
+            print(os.system('docker compose down --remove-orphans && docker compose up -d'))
+
+        elif menu_choice == 'q':
+            break
+        else:
+            print('Press Q to quit')
