@@ -209,7 +209,7 @@ if __name__ == '__main__':
         elif menu_choice == '3':
             os.system('docker logs -f mediamtx -n 100')
 
-        elif menu_choice == '4:
+        elif menu_choice == '4':
             print(json.dumps(get_paths(), indent=2))
 
         elif menu_choice == '5':
