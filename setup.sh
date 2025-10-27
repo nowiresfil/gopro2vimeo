@@ -19,4 +19,5 @@ python -m venv .venv
 source .venv/bin/activate
 pip install requests PyYAML
 cd ..
-python setup-mediamtx.py
+chmod +x setup-mediamtx.py
+sudo cp setup-mediamtx.py /usr/local/sbin/setup-mediamtx
